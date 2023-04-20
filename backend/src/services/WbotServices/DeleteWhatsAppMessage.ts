@@ -18,7 +18,7 @@ const DeleteWhatsAppMessage = async (messageId: string): Promise<Message> => {
   });
 
   if (!message) {
-    throw new AppError("No se encontró ningún mensaje con este ID.");
+    throw new AppError("No message found with this ID.");
   }
 
   const { ticket } = message;
