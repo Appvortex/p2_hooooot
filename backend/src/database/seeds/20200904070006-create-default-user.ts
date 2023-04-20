@@ -10,9 +10,9 @@ module.exports = {
           "Users",
           [
             {
-              name: "Admin",
-              email: "admin@admin.com",
-              profile: "admin",
+              name: "Vortex",
+              email: "admin@vortexagencia.com",
+              profile: "Vortex",
               passwordHash,
               companyId: 1,
               createdAt: new Date(),

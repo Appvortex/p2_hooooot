@@ -237,7 +237,7 @@ const sendMessageImage = async (
     sentMessage = await wbot.sendMessage(
       `${contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`,
       {
-        text: formatBody('Não consegui enviar o PDF, tente novamente!', contact)
+        text: formatBody('No pude enviar el PDF, inténtalo de nuevo.', contact)
       }
     );
   }
@@ -265,7 +265,7 @@ const sendMessageLink = async (
   } catch (error) {
     sentMessage = await wbot.sendMessage(
       `${contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, {
-      text: formatBody('Não consegui enviar o PDF, tente novamente!', contact)
+      text: formatBody('No pude enviar el PDF, inténtalo de nuevo.', contact)
     }
     );
   }
@@ -353,7 +353,7 @@ export const getBodyMessage = (msg: proto.IWebMessageInfo): string | null => {
       viewOnceMessage: getBodyButton(msg) || msg.message?.listResponseMessage?.singleSelectReply?.selectedRowId,
       stickerMessage: "sticker",
       contactMessage: msg.message?.contactMessage?.vcard,
-      contactsArrayMessage: "varios contatos",
+      contactsArrayMessage: "varios contactos",
       //locationMessage: `Latitude: ${msg.message.locationMessage?.degreesLatitude} - Longitude: ${msg.message.locationMessage?.degreesLongitude}`,
       locationMessage: msgLocation(
         msg.message?.locationMessage?.jpegThumbnail,
@@ -911,7 +911,7 @@ const verifyQueue = async (
         const endTime = moment(schedule.endTime, "HH:mm");
 
         if (now.isBefore(startTime) || now.isAfter(endTime)) {
-          const body = formatBody(`${queue.outOfHoursMessage}\n\n*[ # ]* - Voltar ao Menu Principal`, ticket.contact);
+          const body = formatBody(`${queue.outOfHoursMessage}\n\n*[ # ]* - Regresar ao Menu Principal`, ticket.contact);
           const sentMessage = await wbot.sendMessage(
             `${contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, {
             text: body,
@@ -1149,7 +1149,7 @@ const handleChartbot = async (
         body += options;
       }
   
-      body += "\n\n*[ # ]* - *Menu Inicial*";
+      body += "*[ # ]* - *Menu Inicial*";
   
       const textMessage = {
         text: formatBody(`\u200e${body}`, ticket.contact),
@@ -1190,7 +1190,7 @@ const handleChartbot = async (
           body += options;
         }
   
-        aditionalOptions += "*[ 0 ]* - *Voltar*\n";
+        aditionalOptions += "*[ 0 ]* - *Regresar*";
         aditionalOptions += "*[ # ]* - *Menu inicial*";
   
         body += aditionalOptions;
@@ -1203,7 +1203,7 @@ const handleChartbot = async (
           }
         } else {
 
-          body += `*[ 0 ]* - *Voltar*\n`;
+          body += `*[ 0 ]* - *Regresar*`;
           body += `*[ # ]* - *Menu inicial*`;
         }
       }
@@ -1294,7 +1294,7 @@ const handleChartbot = async (
       });
   
       sectionsRows.push({
-        title: "Voltar Menu Inicial",
+        title: "Regresar Menu Inicial",
         rowId: `#`
       });
   
@@ -1337,7 +1337,7 @@ const handleChartbot = async (
   
         if (queueOptions.length == 0) {
           sectionsRows.push({
-            title: "Voltar Menu Inicial",
+            title: "Regresar a Menu Inicial",
             rowId: `#`
           });
         }
@@ -1354,7 +1354,7 @@ const handleChartbot = async (
         } */
   
         sectionsRows.push({
-          title: "Voltar",
+          title: "Regresar",
           rowId: `0`
         });
         sectionsRows.push({
@@ -1372,7 +1372,7 @@ const handleChartbot = async (
             body += `\n\n${firstOption.message}`;
           }
           sectionsRows.push({
-            title: "Voltar",
+            title: "Regresar",
             rowId: `0`
           });
           sectionsRows.push({
@@ -1381,7 +1381,7 @@ const handleChartbot = async (
           });
         } else {
           sectionsRows.push({
-            title: "Voltar",
+            title: "Regresar",
             rowId: `0`
           });
           sectionsRows.push({
@@ -1484,7 +1484,7 @@ const handleChartbot = async (
   
       buttons.push({
         buttonId: `#`,
-        buttonText: { displayText: "Voltar Menu Inicial" },
+        buttonText: { displayText: "Regresar a Menu Inicial" },
         type: 4
       });
 
@@ -1523,7 +1523,7 @@ const handleChartbot = async (
         if (queueOptions.length == 0) {
           buttons.push({
             buttonId: `#`,
-            buttonText: { displayText: "Voltar Menu Inicial" },
+            buttonText: { displayText: "Regresar a Menu Inicial" },
             type: 4
           });
         }
@@ -1542,12 +1542,12 @@ const handleChartbot = async (
   
         buttons.push({
           buttonId: `0`,
-          buttonText: { displayText: "Voltar" },
+          buttonText: { displayText: "Regresar" },
           type: 4
         });
         buttons.push({
           buttonId: `#`,
-          buttonText: { displayText: "Voltar Menu Inicial" },
+          buttonText: { displayText: "Regresar Menu Inicial" },
           type: 4
         });
 
@@ -1562,23 +1562,23 @@ const handleChartbot = async (
           }
           buttons.push({
             buttonId: `0`,
-            buttonText: { displayText: "Voltar" },
+            buttonText: { displayText: "Regresar" },
             type: 4
           });
           buttons.push({
             buttonId: `#`,
-            buttonText: { displayText: "Voltar Menu Inicial" },
+            buttonText: { displayText: "Regresar Menu Inicial" },
             type: 4
           });
         } else {
           buttons.push({
             buttonId: `0`,
-            buttonText: { displayText: "Voltar" },
+            buttonText: { displayText: "Regresar" },
             type: 4
           });
           buttons.push({
             buttonId: `#`,
-            buttonText: { displayText: "Voltar Menu Inicial" },
+            buttonText: { displayText: "Regresar Menu Inicial" },
             type: 4
           });
         }
@@ -1698,7 +1698,7 @@ const handleChartbot = async (
         body += options;
       }
 
-      aditionalOptions += "*0* - *Voltar*\n";
+      aditionalOptions += "*0* - *Regresar*\n";
       aditionalOptions += "*#* - *Menu inicial*";
 
       body += aditionalOptions;
@@ -1711,7 +1711,7 @@ const handleChartbot = async (
         }
       } else {
         body = `*#* - *Falar com o atendente*\n\n`;
-        body += `*0* - *Voltar*\n`;
+        body += `*0* - *Regresar*\n`;
         body += `*#* - *Menu inicial*`;
       }
     }
@@ -2027,17 +2027,17 @@ const handleMessage = async (
                               const bodyLiberado = { text: formatBody(`Pronto liberei! Vou precisar que você *retire* seu equipamento da tomada.\n\n*OBS: Somente retire da tomada.* \nAguarde 1 minuto e ligue novamente!`, contact) };
                               await sleep(2000)
                               await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyLiberado);
-                              const bodyqrcode = { text: formatBody(`Veja se seu acesso voltou! Caso nao tenha voltado retorne o contato e fale com um atendente!`, contact) };
+                              const bodyqrcode = { text: formatBody(`¡Vea si su acceso ha regresado! Si no ha regresado, vuelva a ponerse en contacto y hable con un asistente.`, contact) };
                               await sleep(2000)
                               await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyqrcode);
                             }).catch(async function (error) {
-                              const bodyfinaliza = { text: formatBody(`Opss! Algo de errado aconteceu! Digite *#* para voltar ao menu anterior e fale com um atendente!`, contact) };
+                              const bodyfinaliza = { text: formatBody(`¡Ups! ¡Algo salió mal! ¡Escribe *#* para volver al menú anterior y hablar con un asistente!`, contact) };
                               await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyfinaliza);
                             });
                           }
 
 
-                          const bodyfinaliza = { text: formatBody(`Estamos finalizando esta conversa! Caso precise entre em contato conosco!`, contact) };
+                          const bodyfinaliza = { text: formatBody(`¡Estamos terminando esta conversación! Si lo necesitas, contáctanos!`, contact) };
                           await sleep(12000)
                           await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyfinaliza);
 
@@ -2719,7 +2719,7 @@ const handleMessage = async (
                                     await sleep(2000)
                                     await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyPdf);
                                     const bodyfinaliza = {
-                                      text: formatBody(`Estamos finalizando esta conversa! Caso precise entre em contato conosco!`, contact),
+                                      text: formatBody(`¡Estamos terminando esta conversación! Si lo necesitas, contáctanos!`, contact),
                                     };
                                     await sleep(2000)
                                     await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyfinaliza);
@@ -2929,14 +2929,14 @@ const handleMessage = async (
 
                             }).catch(async function (error) {
                               const bodyerro = {
-                                text: formatBody(`Ops! Ocorreu um erro digite *#* e fale com um atendente!`, contact),
+                                text: formatBody(`¡Ups! ¡Ocurrió un error, escriba *#* y hable con un asistente!`, contact),
                               };
                               await sleep(2000)
                               await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyerro);
                             });
                           } else {
                             const bodyfinaliza = {
-                              text: formatBody(`Estamos finalizando esta conversa! Caso precise entre em contato conosco!`, contact),
+                              text: formatBody(`¡Estamos terminando esta conversación! Si lo necesitas, contáctanos!`, contact),
                             };
                             await sleep(2000)
                             await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyfinaliza);
@@ -2973,7 +2973,7 @@ const handleMessage = async (
               }).catch(async function (error) {
                 logger.error(error.reason);
                 const body = {
-                  text: formatBody(`*Opss!!!!*\nOcorreu um erro! Digite *#* e fale com um *Atendente*!`, contact),
+                  text: formatBody(`*Ups!!!!*¡Ocurrió un error! ¡Escriba *#* y hable con un *asistente*!`, contact),
                 };
                 await sleep(2000)
                 await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, body);
@@ -2992,7 +2992,7 @@ const handleMessage = async (
       }
     }
 
-    if (filaescolhida === "Religue de Confiança" || filaescolhida === "Liberação em Confiança") {
+    if (filaescolhida === "confianza religiosa" || filaescolhida === "Liberación en fideicomiso") {
       let cpfcnpj
       cpfcnpj = getBodyMessage(msg);
       cpfcnpj = cpfcnpj.replace(/\./g, '');
@@ -3107,7 +3107,7 @@ const handleMessage = async (
                   await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, body);
                 } if (response.data.total === 0) {
                   const body = {
-                    text: formatBody(`Cadastro não localizado! *CPF/CNPJ* incorreto ou inválido. Tenta novamente!`, contact),
+                    text: formatBody(`Registro no encontrado! *CPF/CNPJ incorrecto o no válido*. ¡Inténtalo de nuevo!`, contact),
                   };
                   try {
                     await sleep(2000)
@@ -3127,7 +3127,7 @@ const handleMessage = async (
 
 
                   const body = {
-                    text: formatBody(`Localizei seu Cadastro! \n*${nome}* só mais um instante por favor!`, contact),
+                    text: formatBody(`¡Ubica tu Registro! *${nome}* solo un momento mas por favor!`, contact),
                   };
                   await sleep(2000)
                   await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, body);
@@ -3156,12 +3156,12 @@ const handleMessage = async (
                     id_contrato = response.data?.registros[0]?.id;
                     if (status_internet !== 'A') {
                       const bodyPdf = {
-                        text: formatBody(`*${nome}*  a sua conexão esta bloqueada! Vou desbloquear para você.`, contact),
+                        text: formatBody(`*${nome}*  ¡Tu conexión está bloqueada! Voy a desbloquear para usted.`, contact),
                       };
                       await sleep(2000)
                       await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyPdf);
                       const bodyqrcode = {
-                        text: formatBody(`Estou liberando seu acesso. Por favor aguarde!`, contact),
+                        text: formatBody(`Estoy liberando tu acceso. ¡Espere por favor!`, contact),
                       };
                       await sleep(2000)
                       await wbot.sendMessage(`${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, bodyqrcode);
